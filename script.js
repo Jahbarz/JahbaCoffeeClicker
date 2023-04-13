@@ -4,9 +4,9 @@ const data = window.data;
 // Make your References to the two DOM nodes
 
 // Create a reference to the element who's ID is 'big_coffee and call it bigCoffee
-
+const bigCoffee = document.getElementById("big_Coffee")
 // Create a reference to the element who's ID is 'producer_container' and call it producerContainer
-
+const producerContainer = document.getElementById("producer_container")
 /**************
  *   SLICE 1
  **************/
@@ -15,6 +15,7 @@ function updateCoffeeView(coffeeQty) {
   // Create a reference to the element who's ID is 'coffee_counter'
   const coffeeCounter = document.getElementById("coffee_counter");
   // Set the innerText of that element to be the coffeeQty passed into this function
+  
 }
 
 function clickCoffee(data) {
