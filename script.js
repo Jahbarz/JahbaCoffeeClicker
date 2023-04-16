@@ -11,19 +11,19 @@ const producerContainer = document.getElementById("producer_container")
  *   SLICE 1
  **************/
 
+// Create a reference to the element who's ID is 'coffee_counter'
+// Set the innerText of that element to be the coffeeQty passed into this function
 function updateCoffeeView(coffeeQty) {
-  // Create a reference to the element who's ID is 'coffee_counter'
   const coffeeCounter = document.getElementById("coffee_counter");
-  // Set the innerText of that element to be the coffeeQty passed into this function
   coffeeCounter.innerText = coffeeQty
 }
 
+// Increment the data object's (passed into this function) coffee property by one
+// call the updateCoffeeView function and pass it the newly updated data.coffee property
+// call the renderProducers function and pass it the data object
 function clickCoffee(data) {
-  // Increment the data object's (passed into this function) coffee property by one
   data.coffee += 1;
-  // call the updateCoffeeView function and pass it the newly updated data.coffee property
   updateCoffeeView(data.coffee);
-  // call the renderProducers function and pass it the data object
   renderProducers(data);
 }
 
@@ -31,16 +31,21 @@ function clickCoffee(data) {
  *   SLICE 2
  **************/
 
+// loop through the producers array passed into the function
+// for each producer, if the coffeeCount (passed in) is greater than or equal
+// to half the producer's price, reassign the producers.unlocked property to equal true
 function unlockProducers(producers, coffeeCount) {
-  // loop through the producers array passed into the function
-  // for each producer, if the coffeeCount (passed in) is greater than or equal
-  // to half the producer's price, reassign the producers.unlocked property to equal true
+  producers.forEach(producer);
+    if (coffeeCount >= producer.price / 2);
+      producers.unlocked = true;
 }
 
+// use the Array.prototype.filter() method
+// filter through the data.producers property, and return an array with only the producers whose
+// unlocked property is true
 function getUnlockedProducers(data) {
-  // use the Array.prototype.filter() method
-  // filter through the data.producers property, and return an array with only the producers whose
-  // unlocked property is true
+  if (data.producers.filter(data) == producers.unlocked);
+    return(true)
 }
 
 // You do not need to edit this function
@@ -79,15 +84,15 @@ function deleteAllChildNodes(parent) {
   }
 }
 
-function renderProducers(data) {
-  // call the unlockProducers function and pass it data.producers and data.coffee
-
-  // make a reference to the DOM element whose ID is producer_container
-
-  // call the deleteAllChildNodes function and pass it the above producerContainer element
-
-  // you do not need to edit the following code, but for understanding, this gets the unlocked producers,
+// call the unlockProducers function and pass it data.producers and data.coffee
+// make a reference to the DOM element whose ID is producer_container
+// call the deleteAllChildNodes function and pass it the above producerContainer element
+// you do not need to edit the following code, but for understanding, this gets the unlocked producers,
   // and for each producer makes a little html div with that producer's info
+function renderProducers(data) {
+  unlockProducers(data.producers , data.coffee);
+  const producerContainer = document.getElementById("producer_container");
+  deleteAllChildNodes(producerContainer);
   getUnlockedProducers(data).forEach((producer) => {
     producerContainer.appendChild(makeProducerDiv(producer));
   });
