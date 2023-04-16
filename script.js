@@ -4,9 +4,12 @@ const data = window.data;
 // Make your References to the two DOM nodes
 
 // Create a reference to the element who's ID is 'big_coffee and call it bigCoffee
-const bigCoffee = document.getElementById("big_Coffee")
+const bigCoffee = document.getElementById("big_Coffee");
+bigCoffee.addEventListener("click", () => clickCoffee(data))
 // Create a reference to the element who's ID is 'producer_container' and call it producerContainer
-const producerContainer = document.getElementById("producer_container")
+const producerContainer = document.getElementById("producer_container");
+producerContainer.addEventListener("click", () => buyButtonClick(data))
+
 /**************
  *   SLICE 1
  **************/
@@ -44,7 +47,7 @@ function unlockProducers(producers, coffeeCount) {
 // filter through the data.producers property, and return an array with only the producers whose
 // unlocked property is true
 function getUnlockedProducers(data) {
-  if (data.producers.filter(data) == producers.unlocked);
+  if (data.producers.filter(data) === producers.unlocked);
     return(true)
 }
 
@@ -152,13 +155,13 @@ function buyButtonClick(event, data) {
   }
 }
 
+// increment the data object's (passed into this function)
+// coffee property by the data.totalCPS amount
+// call the updateCoffeeView function and pass it the data.coffee property
+// call the renderProducers function and pass it the newly updated data object
 function tick(data) {
-  // increment the data object's (passed into this function)
-  // coffee property by the data.totalCPS amount
-
-  // call the updateCoffeeView function and pass it the data.coffee property
-
-  // call the renderProducers function and pass it the newly updated data object
+  data.coffee += data.totalCPS;
+  updateCoffeeView(data.coffee);
   renderProducers(data);
 }
 
