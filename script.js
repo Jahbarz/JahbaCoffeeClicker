@@ -46,9 +46,7 @@ function unlockProducers(producers, coffeeCount) {
 // filter through the data.producers property, and return an array with only the producers whose
 // unlocked property is true
 function getUnlockedProducers(data) {
-  data.producers.filter((producer) => {
-    return producer.unlocked;
-  });
+  return data.producers.filter((producer) => producer.unlocked);
 }
 
 // You do not need to edit this function
